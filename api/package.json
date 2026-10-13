@@ -1,0 +1,18 @@
+{
+  "name": "multiservice-api",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "express": "^5.3.0",
+    "mongodb": "^7.7.0",
+    "redis": "^6.3.0"
+  }
+}

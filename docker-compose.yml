@@ -133,8 +133,10 @@ services:
 
   # -------------------------------------------------------------------------
   # Redis: password-protected, append-only persistence in a named volume.
-  # The official image has no *_FILE support, so the command reads the secret.
-  # `gosu redis` drops root -> redis user after the secret has been read.
+  # The official image has no *_FILE support, so we override the entrypoint:
+  # a tiny wrapper reads the secret, then hands over to the image's OWN
+  # docker-entrypoint.sh, which fixes /data ownership and drops root -> redis.
+  # (We don't name the privilege-drop tool ourselves: it differs between images.)
   # volatile-lru = when memory is full, only evict keys that have a TTL.
   # -------------------------------------------------------------------------
   redis:

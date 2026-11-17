@@ -148,7 +148,7 @@ docker compose down -v                 # stop AND delete data volumes
 - Redis receives its password as a command-line argument, so it is visible to `ps` *inside* that container. A mounted config file avoids this.
 - Add resource limits (`deploy.resources.limits`), `read_only: true` + `tmpfs` for stateless services, and image scanning (`docker scout cves multiservice/api:1.0` or Trivy).
 - Add HTTPS to the proxy (Let's Encrypt / Caddy), a CI pipeline that builds and pushes images, and pin images by digest.
-- Image versions (`node:24-alpine`, `mongo:8.0`, `redis:7-alpine`, `nginx:1.28-alpine`) are pinned on purpose; update them from time to time.
+- Image versions (`node:24-alpine`, `mongo:8.0`, `redis:7.4-alpine`, `nginx:1.28-alpine`) are pinned on purpose; update them from time to time.
 
 ## Project layout
 
